@@ -1,7 +1,5 @@
 var https = require('https');
 var zlib = require('zlib');
-var fs = require('fs');
-
 
 // keyword to search in title
 var intitle = "java";
