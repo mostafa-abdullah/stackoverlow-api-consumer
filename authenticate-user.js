@@ -19,10 +19,9 @@ app.get('/login', function(req, res){
 	var redirect_uri 	= 'http://localhost:8000/approve';
 	var scope 			= 'no_expiry';
 
-	var query 			= url + '?client_id=' + client_id + '&redirect_uri=' + redirect_uri + '&scope=' + scope;
+	var query 			= url + '?client_id=' + client_id + '&scope=' + scope + '&redirect_uri=' + redirect_uri;
 
-	res.writeHead(301, {Location: query});
-	res.end();
+	res.redirect(query);
 
 });
 
