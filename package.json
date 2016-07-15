@@ -1,0 +1,26 @@
+{
+  "name": "stackoverflow-api-consumer",
+  "version": "1.0.0",
+  "description": "Consumer for stackexchange API",
+  "main": "post-question.js",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "dotenv": "^2.0.0",
+    "express": "^4.14.0",
+    "html": "0.0.10"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mostafa-abdullah/stackoverlow-api-consumer.git"
+  },
+  "author": "Mostafa Abdullah",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mostafa-abdullah/stackoverlow-api-consumer/issues"
+  },
+  "homepage": "https://github.com/mostafa-abdullah/stackoverlow-api-consumer#readme"
+}
