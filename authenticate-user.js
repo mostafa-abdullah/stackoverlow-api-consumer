@@ -14,7 +14,7 @@ app.set('view engine', 'html');
 
 app.get('/login', function(req, res){
 
-	var url 			= 'https://stackexchange.com/oauth/dialog';
+	var url 			= 'https://stackexchange.com/oauth';
 	var client_id 		= 7494;
 	var redirect_uri 	= 'http://localhost:8000/approve';
 	var scope 			= 'no_expiry';
@@ -30,12 +30,12 @@ app.get('/login', function(req, res){
 app.get('/approve', function(req, res){
 
 	var code = req.query.code;
-	console.log('before_request');
+
 	var reqData = querystring.stringify({
 		client_id : process.env.client_id,
 		client_secret : process.env.client_secret,
 		code : code,
-		redirect_uri : 'http://localhost:8000/loggedIn'
+		redirect_uri : 'http://localhost:8000/approve'
 	});
 
 	var reqOptions = {
@@ -45,7 +45,7 @@ app.get('/approve', function(req, res){
 		method: 'POST',
 		headers : { 'Content-Type' : 'application/x-www-form-urlencoded'}
 	};
-
+	
 	var request = https.request(reqOptions, function(resSO)
 	{
 		var result = '';
@@ -56,6 +56,9 @@ app.get('/approve', function(req, res){
 			res.send(result);
 		});
 	});
+	request.on('error',function(e){
+		console.log("ERROR: "+e.message);
+	})
 
 	request.write(reqData);
 	request.end();
